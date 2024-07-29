@@ -1,10 +1,15 @@
-import express from "express";
+import express, { Request, Response } from "express";
+import { productRouter } from "./Modules/Product/Product.route";
 const app = express();
 
-app.get("/", (req, res) => {
+app.use(express.json());
+
+app.use("/api/products", productRouter);
+
+app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 
-// product-db
+//
 
 export default app;
