@@ -21,7 +21,6 @@ const createProduct = async (req: Request, res: Response) => {
 
 const getAllProduct = async (req: Request, res: Response) => {
   const result = await productService.getAllProduct();
-  return result;
   try {
     res.status(200).json({
       success: true,
@@ -31,7 +30,7 @@ const getAllProduct = async (req: Request, res: Response) => {
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Product fetched unsuccessfully!",
+      message: "Product fetch unsuccessful",
       data: err,
     });
   }
